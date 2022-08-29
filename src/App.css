@@ -72,3 +72,15 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+.li-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
