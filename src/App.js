@@ -1,9 +1,12 @@
-import { Nav } from './components'
+import { Nav, Challenge } from './components'
 import './App.css';
 
 function App() {
   return (
-    <Nav />
+    <>
+      <Nav />
+      <Challenge />
+    </>
   );
 }
 

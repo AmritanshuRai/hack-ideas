@@ -1,3 +1,7 @@
+:root {
+  --inset: -5%;
+}
+
 /* Box sizing rules */
 *,
 *::before,
