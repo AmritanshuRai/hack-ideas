@@ -9,13 +9,17 @@ function useLocalStorage(key, initialvalue) {
     }
     return savedValue;
   })
-
   const setLocalStorageValue = newValue => {
     localStorage.setItem(key, JSON.stringify(newValue));
     setValue(newValue)
   }
+  const valueInStorage = localStorage.getItem(key);
 
+  if (valueInStorage !== JSON.stringify(value)) {
+    setValue(JSON.parse(valueInStorage));
+  }
   return [value, setLocalStorageValue]
+
 };
 
 export default useLocalStorage;

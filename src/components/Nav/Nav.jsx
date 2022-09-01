@@ -1,4 +1,5 @@
 import User from "../User/User";
+import CreateChallenge from "../CreateChallenge/CreateChallenge";
 import "./Nav.css";
 const Nav = () => {
   return (
@@ -6,7 +7,9 @@ const Nav = () => {
       <nav>
         <ul className="nav_items li-reset center">
           <li>logo</li>
-          <li>Add challenge</li>
+          <li>
+            <CreateChallenge />
+          </li>
           <li>
             <User />
           </li>
