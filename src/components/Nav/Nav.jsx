@@ -1,3 +1,4 @@
+import User from "../User/User";
 import "./Nav.css";
 const Nav = () => {
   return (
@@ -6,7 +7,9 @@ const Nav = () => {
         <ul className="nav_items li-reset center">
           <li>logo</li>
           <li>Add challenge</li>
-          <li>login</li>
+          <li>
+            <User />
+          </li>
         </ul>
       </nav>
     </header>

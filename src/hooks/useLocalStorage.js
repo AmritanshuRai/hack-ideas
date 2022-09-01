@@ -18,4 +18,4 @@ function useLocalStorage(key, initialvalue) {
   return [value, setLocalStorageValue]
 };
 
-exports.useLocalStorage = useLocalStorage;
+export default useLocalStorage;
