@@ -50,7 +50,10 @@ function App() {
     <>
       <Nav challengesApi={[challenges, setChallenges]} userApi={[currentUser, setCurrentUser]} />
       <Sort dispatch={dispatch} />
-      {filteredChallenges.map(challenge => <Challenge challenge={challenge} currentUser={currentUser} challenges={challenges} setChallenges={setChallenges} key={challenge.id} />)}
+      <section className="container">
+        {filteredChallenges.map(challenge => <Challenge challenge={challenge} currentUser={currentUser} challenges={challenges} setChallenges={setChallenges} key={challenge.id} />)}
+      </section>
+
     </>
   );
 }

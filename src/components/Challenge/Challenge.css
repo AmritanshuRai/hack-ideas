@@ -10,3 +10,14 @@
   color: black;
   font-size: 1em;
 }
+
+.challenge-wrapper {
+  flex: 0 0 25%;
+  margin: 1em 2em;
+  max-width: 20em;
+  overflow-wrap: anywhere;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

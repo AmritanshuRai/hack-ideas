@@ -9,7 +9,7 @@ const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
   const [currentVote, setCurrentVote] = useState(votes[currentUserName]);
   useEffect(() => {
     setCurrentVote(votes[currentUserName]);
-  }, [currentUserName]);
+  }, [currentUserName, votes]);
   const handleVote = (type) => {
     if (!currentUserName) {
       alert("login to vote");
@@ -25,7 +25,7 @@ const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
   };
 
   return (
-    <PrettyBorder>
+    <PrettyBorder className="challenge-wrapper">
       <div>{title}</div>
       <div>{description}</div>
       <div>{author}</div>
