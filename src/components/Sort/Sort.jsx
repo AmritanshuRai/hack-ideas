@@ -4,7 +4,8 @@ const Sort = ({ dispatch }) => {
   };
   return (
     <select onChange={handleChange}>
-      <option value="">Please choose</option>
+      <option value="NEWEST">newest</option>
+      <option value="OLDEST">oldest</option>
       <option value="MOST_UPVOTES">Most upvotes</option>
       <option value="MOST_DOWNVOTES">Most downvotes</option>
     </select>

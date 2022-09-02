@@ -1,13 +1,16 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 import { Nav, Challenge, Sort } from './components';
 import useLocalStorage from './hooks/useLocalStorage';
 
 import './App.css';
 
 function reducer(state, action) {
+
   switch (action.type) {
     case "OLDEST":
-      return { ...state, isRunning: true };
+      return [...state].sort((a, b) => {
+        return new Date(a.createdAt) - new Date(b.createdAt);
+      });
     case "MOST_UPVOTES":
       return [...state].sort((a, b) => {
         const aValue = Object.values(a.votes).filter(x => x === 'up').length;
@@ -19,6 +22,11 @@ function reducer(state, action) {
         const aValue = Object.values(a.votes).filter(x => x === 'down').length;
         const bValue = Object.values(b.votes).filter(x => x === 'down').length;
         return bValue - aValue;
+      });
+    case "NEWEST":
+      let values = action.payload ?? state;
+      return [...values].sort((a, b) => {
+        return new Date(b.createdAt) - new Date(a.createdAt);
       });
     default:
       return state;
@@ -33,7 +41,10 @@ function App() {
 
   //useReducer to manage complex sort functionality
   const [filteredChallenges, dispatch] = useReducer(reducer, challenges);
-  console.log('filteredChallenges: ', filteredChallenges);
+
+  useEffect(() => {
+    dispatch({ type: "NEWEST", payload: challenges })
+  }, [challenges])
 
   return (
     <>

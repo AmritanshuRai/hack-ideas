@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import Modal from "../UI/Modal/Modal";
 const CreateChallenge = ({ challengesApi, userApi }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentUser, setCurrentUser] = userApi;
+  const [currentUser] = userApi;
   const [challenges, setChallenges] = challengesApi;
 
   const handleSubmit = (e) => {
@@ -19,14 +18,23 @@ const CreateChallenge = ({ challengesApi, userApi }) => {
         author: currentUser.name,
         votes: {},
         id: uuid(),
+        createdAt: new Date(),
       },
     ]);
     setIsOpen(false);
   };
 
+  const handleAddChallenge = () => {
+    if (!currentUser.name) {
+      alert("Please login to add challenge");
+      return;
+    }
+
+    setIsOpen(true);
+  };
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Add Challenge</button>
+      <button onClick={handleAddChallenge}>Add Challenge</button>
 
       <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
         <p>Create new Challenge</p>
