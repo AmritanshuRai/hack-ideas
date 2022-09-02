@@ -1,24 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsHandThumbsDown, BsHandThumbsUp } from "react-icons/bs";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import { PrettyBorder } from "../UI";
 import "./Challenge.css";
 
-const Challenge = (props) => {
-  const { title, author, description, id, votes } = props.challenge;
-
-  const [challenges, setChallenges] = useLocalStorage("challenges", []);
-  const [currentUser] = useLocalStorage("currentUser");
-  const [currentVote, setCurrentVote] = useState(votes[currentUser.name]);
-
+const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
+  const currentUserName = currentUser.name;
+  const { title, author, description, id, votes } = challenge;
+  const [currentVote, setCurrentVote] = useState(votes[currentUserName]);
+  useEffect(() => {
+    setCurrentVote(votes[currentUserName]);
+  }, [currentUserName]);
   const handleVote = (type) => {
+    if (!currentUserName) {
+      alert("login to vote");
+      return;
+    }
     const index = challenges.findIndex((object) => {
       return object.id === id;
     });
-    challenges[index].votes[currentUser.name] = type;
+    challenges[index].votes[currentUserName] = type;
 
     setChallenges(challenges);
-    setCurrentVote(challenges[index].votes[currentUser.name]);
+    setCurrentVote(challenges[index].votes[currentUserName]);
   };
 
   return (

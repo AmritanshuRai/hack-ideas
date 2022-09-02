@@ -1,11 +1,9 @@
 import { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import Modal from "../UI/Modal/Modal";
-const User = () => {
+const User = ({ userApi }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useLocalStorage("currentUser", {
-    name: "",
-  });
+  const [currentUser, setCurrentUser] = userApi;
   const [allUsers, setAllUsers] = useLocalStorage("allUsers", []);
 
   const handleRegister = (e) => {

@@ -2,10 +2,10 @@ import { useState } from "react";
 import { v4 as uuid } from "uuid";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import Modal from "../UI/Modal/Modal";
-const CreateChallenge = ({ syncStorageAndState }) => {
+const CreateChallenge = ({ challengesApi, userApi }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentUser] = useLocalStorage("currentUser");
-  const [challenges, setChallenges] = useLocalStorage("challenges", []);
+  const [currentUser, setCurrentUser] = userApi;
+  const [challenges, setChallenges] = challengesApi;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +22,6 @@ const CreateChallenge = ({ syncStorageAndState }) => {
       },
     ]);
     setIsOpen(false);
-    syncStorageAndState();
   };
 
   return (

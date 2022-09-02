@@ -4,15 +4,14 @@ import useLocalStorage from './hooks/useLocalStorage';
 import './App.css';
 function App() {
   const [challenges, setChallenges] = useLocalStorage("challenges", []);
-  const syncStorageAndState = () => {
-    const savedValue = JSON.parse(localStorage.getItem("challenges"));
-    setChallenges(savedValue)
-  }
+  const [currentUser, setCurrentUser] = useLocalStorage("currentUser", {
+    name: "",
+  });
+
   return (
     <>
-      <Nav syncStorageAndState={syncStorageAndState} />
-      {challenges.map(challenge => <Challenge challenge={challenge} key={challenge.id} />)}
-      <button>update</button>
+      <Nav challengesApi={[challenges, setChallenges]} userApi={[currentUser, setCurrentUser]} />
+      {challenges.map(challenge => <Challenge challenge={challenge} currentUser={currentUser} challenges={challenges} setChallenges={setChallenges} key={challenge.id} />)}
     </>
   );
 }
