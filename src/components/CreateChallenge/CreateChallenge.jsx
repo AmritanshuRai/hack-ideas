@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import Modal from "../UI/Modal/Modal";
-const CreateChallenge = () => {
+const CreateChallenge = ({ syncStorageAndState }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser] = useLocalStorage("currentUser");
   const [challenges, setChallenges] = useLocalStorage("challenges", []);
@@ -19,6 +19,7 @@ const CreateChallenge = () => {
       },
     ]);
     setIsOpen(false);
+    syncStorageAndState();
   };
 
   return (

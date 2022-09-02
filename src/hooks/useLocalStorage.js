@@ -16,6 +16,7 @@ function useLocalStorage(key, initialvalue) {
   const valueInStorage = localStorage.getItem(key);
 
   if (valueInStorage !== JSON.stringify(value)) {
+
     setValue(JSON.parse(valueInStorage));
   }
   return [value, setLocalStorageValue]

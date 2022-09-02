@@ -2,11 +2,8 @@ import { BsHandThumbsDown, BsHandThumbsUp } from "react-icons/bs";
 import { PrettyBorder } from "../UI";
 import "./Challenge.css";
 
-const Challenge = ({
-  title = "title",
-  author = "rai",
-  description = "Sample Description",
-}) => {
+const Challenge = (props) => {
+  const { title, author, description } = props.challenge;
   return (
     <PrettyBorder>
       <div>{title}</div>
