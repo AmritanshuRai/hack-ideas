@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import Modal from "../UI/Modal/Modal";
 const CreateChallenge = ({ syncStorageAndState }) => {
@@ -16,6 +17,8 @@ const CreateChallenge = ({ syncStorageAndState }) => {
         title: title.value,
         tag: tag.value,
         author: currentUser.name,
+        votes: {},
+        id: uuid(),
       },
     ]);
     setIsOpen(false);

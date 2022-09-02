@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Nav syncStorageAndState={syncStorageAndState} />
-      {challenges.map(challenge => <Challenge challenge={challenge} key={JSON.stringify(challenge)} />)}
+      {challenges.map(challenge => <Challenge challenge={challenge} key={challenge.id} />)}
       <button>update</button>
     </>
   );

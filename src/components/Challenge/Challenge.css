@@ -1,0 +1,12 @@
+.up {
+  color: blue;
+  font-size: 1.2em;
+}
+.down {
+  color: red;
+  font-size: 1.2em;
+}
+.normal {
+  color: black;
+  font-size: 1em;
+}
