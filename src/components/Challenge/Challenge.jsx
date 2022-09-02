@@ -40,6 +40,18 @@ const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
           onClick={() => handleVote("down")}
         />
       </div>
+      <p>
+        total upvotes :
+        <span>
+          {Object.values(votes).filter((vote) => vote === "up").length}
+        </span>
+      </p>
+      <p>
+        total downvotes :
+        <span>
+          {Object.values(votes).filter((vote) => vote === "down").length}
+        </span>
+      </p>
     </PrettyBorder>
   );
 };
