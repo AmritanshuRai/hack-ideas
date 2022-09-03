@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
-import Modal from "../UI/Modal/Modal";
+import { Modal, PrettyBorder } from "../UI";
 const User = ({ userApi }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser, setCurrentUser] = userApi;
@@ -41,17 +41,21 @@ const User = ({ userApi }) => {
   return (
     <>
       {currentUser.name ? (
-        <button
-          onClick={() =>
-            setCurrentUser({
-              name: "",
-            })
-          }
-        >
-          {currentUser.name}
-        </button>
+        <PrettyBorder className="prettyBorder-cta">
+          <button
+            onClick={() =>
+              setCurrentUser({
+                name: "",
+              })
+            }
+          >
+            Welcome, {" " + currentUser.name}
+          </button>
+        </PrettyBorder>
       ) : (
-        <button onClick={() => setIsOpen(true)}>Login</button>
+        <PrettyBorder className="prettyBorder-cta">
+          <button onClick={() => setIsOpen(true)}>Login</button>
+        </PrettyBorder>
       )}
 
       <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>

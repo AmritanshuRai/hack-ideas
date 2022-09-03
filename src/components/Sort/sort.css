@@ -1,0 +1,15 @@
+.sort {
+  letter-spacing: 1px;
+  padding: 0.2em;
+  border: none;
+  background: #f3fff978;
+  color: var(--color-secondary);
+  font-weight: 400;
+  text-transform: capitalize;
+  outline: none;
+}
+.sort-wrapper {
+  padding: 0;
+  margin: 2em auto;
+  background: #f3fff978;
+}

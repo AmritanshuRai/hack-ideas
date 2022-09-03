@@ -1,3 +1,16 @@
-.nav .nav_items {
+.nav {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding: 0.5em;
+}
+
+.logo {
+  font-size: 1em;
+  text-transform: uppercase;
+  background: linear-gradient(127deg, #59d102 -4%, #f3f520 108%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  font-weight: 600;
 }

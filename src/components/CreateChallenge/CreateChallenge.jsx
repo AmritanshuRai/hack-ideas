@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-import Modal from "../UI/Modal/Modal";
+import { Modal, PrettyBorder } from "../UI";
+
+import "./CreateChallenge.css";
+
 const CreateChallenge = ({ challengesApi, userApi }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser] = userApi;
@@ -34,7 +37,9 @@ const CreateChallenge = ({ challengesApi, userApi }) => {
   };
   return (
     <>
-      <button onClick={handleAddChallenge}>Add Challenge</button>
+      <PrettyBorder className="prettyBorder-cta challenge-cta">
+        <button onClick={handleAddChallenge}>Add Challenge</button>
+      </PrettyBorder>
 
       <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
         <p>Create new Challenge</p>
