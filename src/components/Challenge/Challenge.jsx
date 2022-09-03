@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
-import { BsHandThumbsDown, BsHandThumbsUp } from "react-icons/bs";
+import {
+  BsHandThumbsDown,
+  BsHandThumbsUp,
+  BsHandThumbsDownFill,
+  BsHandThumbsUpFill,
+} from "react-icons/bs";
 import { PrettyBorder } from "../UI";
 import "./Challenge.css";
 
@@ -7,12 +12,17 @@ const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
   const currentUserName = currentUser.name;
   const { title, author, description, id, votes } = challenge;
   const [currentVote, setCurrentVote] = useState(votes[currentUserName]);
+
   useEffect(() => {
     setCurrentVote(votes[currentUserName]);
   }, [currentUserName, votes]);
+
   const handleVote = (type) => {
     if (!currentUserName) {
       alert("login to vote");
+      return;
+    }
+    if (type === currentVote) {
       return;
     }
     const index = challenges.findIndex((object) => {
@@ -24,30 +34,31 @@ const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
     setCurrentVote(challenges[index].votes[currentUserName]);
   };
 
+  const UpVote = currentVote === "up" ? BsHandThumbsUpFill : BsHandThumbsUp;
+  const DownVote =
+    currentVote === "down" ? BsHandThumbsDownFill : BsHandThumbsDown;
+
   return (
     <PrettyBorder className="challenge-wrapper">
-      <div>{title}</div>
-      <div>{description}</div>
-      <div>{author}</div>
+      <h4>{title}</h4>
+      <p>{description}</p>
+      <p>
+        <span className="byline">By:</span>
+        {author}
+      </p>
       <div>
-        <span>is it good?</span>
-        <BsHandThumbsUp
-          className={`${currentVote === "up" ? "up" : "normal"}`}
-          onClick={() => handleVote("up")}
-        />
-        <BsHandThumbsDown
-          className={`${currentVote === "down" ? "down" : "normal"}`}
-          onClick={() => handleVote("down")}
-        />
+        <span className="byline">is it good?</span>
+        <UpVote className="vote" onClick={() => handleVote("up")} />
+        <DownVote className="vote" onClick={() => handleVote("down")} />
       </div>
       <p>
-        total upvotes :
+        <span className="byline">total upvotes:</span>
         <span>
           {Object.values(votes).filter((vote) => vote === "up").length}
         </span>
       </p>
       <p>
-        total downvotes :
+        <span className="byline">total downvotes:</span>
         <span>
           {Object.values(votes).filter((vote) => vote === "down").length}
         </span>

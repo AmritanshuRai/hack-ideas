@@ -1,5 +1,7 @@
 :root {
   --inset: -5%;
+  --color-primary: #589d9f;
+  --color-secondary: #77b677;
 }
 
 /* Box sizing rules */
@@ -39,6 +41,9 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  background: #f6fffe;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 /* A elements that don't have a class get default styles */
@@ -91,4 +96,11 @@ select {
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
+
+/* uncomment to make last row left align */
+/* .container::after {
+  content: "";
+  flex: auto;
+} */
