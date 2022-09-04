@@ -1,11 +1,16 @@
 import { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
-import { Modal, PrettyBorder } from "../UI";
+import { Modal, PrettyBorder, Toast } from "../UI";
 
 import "./User.css";
 
 const User = ({ userApi }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [toastConfig, setToastConfig] = useState({
+    show: false,
+    message: "",
+    type: "info",
+  });
   const [currentUser, setCurrentUser] = userApi;
   const [allUsers, setAllUsers] = useLocalStorage("allUsers", []);
 
@@ -17,7 +22,11 @@ const User = ({ userApi }) => {
 
     const user = allUsers.find((user) => user.name === currentUserInput);
     if (user) {
-      alert("User already exist. Try another name");
+      setToastConfig({
+        show: true,
+        message: "User already exist. Please login or try another name",
+        type: "error",
+      });
       return;
     }
 
@@ -34,7 +43,11 @@ const User = ({ userApi }) => {
 
     const user = allUsers.find((user) => user.name === currentUserInput);
     if (!user) {
-      alert("This user is not registered. Please register");
+      setToastConfig({
+        show: true,
+        message: "This user is not registered. Please register first",
+        type: "error",
+      });
       return;
     }
     setCurrentUser(user);
@@ -60,7 +73,7 @@ const User = ({ userApi }) => {
           <button onClick={() => setIsOpen(true)}>Login</button>
         </PrettyBorder>
       )}
-
+      <Toast setToastConfig={setToastConfig} toastConfig={toastConfig} />
       <Modal
         handleClose={() => setIsOpen(false)}
         isOpen={isOpen}

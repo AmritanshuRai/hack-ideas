@@ -5,12 +5,17 @@ import {
   BsHandThumbsDownFill,
   BsHandThumbsUpFill,
 } from "react-icons/bs";
-import { PrettyBorder } from "../UI";
+import { PrettyBorder, Toast } from "../UI";
 import "./Challenge.css";
 
 const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
   const currentUserName = currentUser.name;
   const { title, author, description, id, votes } = challenge;
+  const [toastConfig, setToastConfig] = useState({
+    show: false,
+    message: "",
+    type: "info",
+  });
   const [currentVote, setCurrentVote] = useState(votes[currentUserName]);
 
   useEffect(() => {
@@ -19,7 +24,11 @@ const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
 
   const handleVote = (type) => {
     if (!currentUserName) {
-      alert("login to vote");
+      setToastConfig({
+        show: true,
+        message: "Please login to vote",
+        type: "error",
+      });
       return;
     }
     if (type === currentVote) {
@@ -40,6 +49,7 @@ const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
 
   return (
     <PrettyBorder className="challenge-wrapper">
+      <Toast setToastConfig={setToastConfig} toastConfig={toastConfig} />
       <h4>{title}</h4>
       <p>{description}</p>
       <p>

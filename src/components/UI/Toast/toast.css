@@ -1,0 +1,10 @@
+#react-portal-toast-container {
+  position: fixed;
+  top: 2em;
+  right: 2em;
+}
+.toast {
+  margin: 1em auto;
+  padding: 1em;
+  letter-spacing: 1px;
+}

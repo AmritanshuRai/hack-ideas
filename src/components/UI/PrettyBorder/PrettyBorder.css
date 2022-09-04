@@ -14,7 +14,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(127deg, #59d102 -4%, #f3f520 108%);
+  background: var(--prettyBorder-background);
   transform: translate3d(-2px, 8px, 0) scale(0.97);
   filter: blur(9px);
   opacity: var(0.7);
@@ -51,33 +51,3 @@
   color: #7db3b5;
   cursor: pointer;
 }
-/* 
-.box:before {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(-30deg, #59d102 -4%, #f3f520 80% );
-    transform: translate3d(0px, 10px, 0) scale(0.9);
-    filter: blur(6px);
-    opacity: var(0.7);
-    transition: opacity 0.3s;
-    border-radius: inherit;
-}
-
-
-.box::after {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: inherit;
-    border-radius: inherit;
-}
-         */

@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
-import { Modal, PrettyBorder } from "../UI";
+import { Modal, PrettyBorder, Toast } from "../UI";
 
 import "./CreateChallenge.css";
 
 const CreateChallenge = ({ challengesApi, userApi }) => {
+  const [toastConfig, setToastConfig] = useState({
+    show: false,
+    message: "",
+    type: "info",
+  });
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser] = userApi;
   const [challenges, setChallenges] = challengesApi;
@@ -25,11 +30,16 @@ const CreateChallenge = ({ challengesApi, userApi }) => {
       },
     ]);
     setIsOpen(false);
+    setToastConfig({ show: true, message: "Challenge Added", type: "info" });
   };
 
   const handleAddChallenge = () => {
     if (!currentUser.name) {
-      alert("Please login to add challenge");
+      setToastConfig({
+        show: true,
+        message: "Please login to add challenge",
+        type: "error",
+      });
       return;
     }
 
@@ -40,6 +50,8 @@ const CreateChallenge = ({ challengesApi, userApi }) => {
       <PrettyBorder className="prettyBorder-cta challenge-cta">
         <button onClick={handleAddChallenge}>Add Challenge</button>
       </PrettyBorder>
+
+      <Toast setToastConfig={setToastConfig} toastConfig={toastConfig} />
 
       <Modal
         handleClose={() => setIsOpen(false)}
