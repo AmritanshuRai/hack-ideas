@@ -29,7 +29,11 @@ const User = ({ userApi }) => {
       });
       return;
     }
-
+    setToastConfig({
+      show: true,
+      message: `Hello, ${currentUserInput}`,
+      type: "info",
+    });
     setCurrentUser({ name: currentUserInput });
     setAllUsers([...allUsers, { name: currentUserInput }]);
     setIsOpen(false);
@@ -52,6 +56,11 @@ const User = ({ userApi }) => {
     }
     setCurrentUser(user);
     setIsOpen(false);
+    setToastConfig({
+      show: true,
+      message: `Welcome back, ${user.name}`,
+      type: "info",
+    });
   };
 
   return (
