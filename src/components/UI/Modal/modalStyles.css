@@ -1,7 +1,6 @@
 .modal {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,11 +8,18 @@
   transition: all 0.3s ease-in-out;
   overflow: hidden;
   z-index: 999;
-  padding: 40px 20px 20px;
+  height: fit-content;
+  margin: auto;
+  background-color: transparent;
+  pointer-events: all;
+  width: 85vw;
+  max-width: 400px;
+  height: 80vh;
+  max-height: 600px;
 }
 
 .modal-content {
-  width: 70%;
-  height: 70%;
-  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

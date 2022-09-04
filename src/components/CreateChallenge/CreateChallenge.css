@@ -1,3 +1,31 @@
 .challenge-cta {
   margin-right: 4em;
 }
+.create-challenge {
+  padding: 1em;
+}
+.create-challenge form {
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+}
+.create-challenge form input,
+.create-challenge form textarea {
+  margin-bottom: 2em;
+  width: 100%;
+  margin-right: 0;
+}
+.create-challenge form select {
+  margin-bottom: 2em;
+  margin-right: 0;
+}
+.create-challenge form select {
+  margin-bottom: 2em;
+  margin-right: 0;
+}
+
+.create-challenge > p:first-child {
+  color: var(--color-primary);
+  font-weight: 500;
+  letter-spacing: 2px;
+}

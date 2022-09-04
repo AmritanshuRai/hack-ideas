@@ -41,11 +41,18 @@ const CreateChallenge = ({ challengesApi, userApi }) => {
         <button onClick={handleAddChallenge}>Add Challenge</button>
       </PrettyBorder>
 
-      <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
+      <Modal
+        handleClose={() => setIsOpen(false)}
+        isOpen={isOpen}
+        className="form-wrapper create-challenge"
+      >
         <p>Create new Challenge</p>
         <form className="center" onSubmit={handleSubmit}>
+          <p>Enter title</p>
           <input name="title" type="text" />
+          <p>Enter description</p>
           <textarea name="description" />
+          <p>Choose a tag</p>
           <select name="tag">
             {["feature", "tech", "science", "art", "code"].map((tag) => (
               <option key={tag}>{tag}</option>

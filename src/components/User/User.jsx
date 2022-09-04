@@ -1,6 +1,9 @@
 import { useState } from "react";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { Modal, PrettyBorder } from "../UI";
+
+import "./User.css";
+
 const User = ({ userApi }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentUser, setCurrentUser] = userApi;
@@ -58,7 +61,11 @@ const User = ({ userApi }) => {
         </PrettyBorder>
       )}
 
-      <Modal handleClose={() => setIsOpen(false)} isOpen={isOpen}>
+      <Modal
+        handleClose={() => setIsOpen(false)}
+        isOpen={isOpen}
+        className="form-wrapper"
+      >
         <form onSubmit={handleRegister}>
           <p>New User?</p>
           <input name="register" type="text" />
