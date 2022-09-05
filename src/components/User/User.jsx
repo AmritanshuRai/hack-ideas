@@ -18,7 +18,14 @@ const User = ({ userApi }) => {
     e.preventDefault();
     const currentUserInput = e.target.register.value;
 
-    if (!currentUserInput) return;
+    if (!currentUserInput) {
+      setToastConfig({
+        show: true,
+        message: "Field cannot be empty",
+        type: "error",
+      });
+      return;
+    }
 
     const user = allUsers.find((user) => user.name === currentUserInput);
     if (user) {
@@ -43,7 +50,14 @@ const User = ({ userApi }) => {
     e.preventDefault();
     const currentUserInput = e.target.login.value;
 
-    if (!currentUserInput) return;
+    if (!currentUserInput) {
+      setToastConfig({
+        show: true,
+        message: "Field cannot be empty",
+        type: "error",
+      });
+      return;
+    }
 
     const user = allUsers.find((user) => user.name === currentUserInput);
     if (!user) {
