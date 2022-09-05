@@ -9,6 +9,8 @@ Follow the below instructions to run this application.
 - unzip the folder
 - run `npm install` to install dependencies
 - run `npm start` to run the code
+- To add challenge, login with existing username(_Amritanshu_, _Ami_ or _Anupam_) or register a new user.
+- Some initial data is added to storage(_src/sample.js_)
 
 ## Wireframes
 
@@ -22,8 +24,9 @@ These are the wireframes
 
 These are some of the things I liked working on this project
 
-- Used **useReducer** to create logic for sort functionality.
+- Used **useReducer** hook to create logic for sort functionality.
 - Style is all written in CSS without using any external CSS library
+- Made it responsive **without** using CSS media queries.
 - Created custom hook(**useLocalStorage**) to work like a single source of application state
 - Used **react portals** to create modal and toast notification
 
@@ -35,7 +38,6 @@ These are some of the things I liked working on this project
 - Allow users to add a new challenges/ideas.
 
 * A challenge will have a title, description and tags
-* You can maintain fixed pre-defined tags (like 'feature', 'tech' etc.)
+* Maintained fixed pre-defined tags (like 'feature', 'tech' etc.)
 * Users can upvote a challenge
-* Show the list of all challenges on home page
-* Allow users to sort challenges with votes count, creation date
+* The list of all challenges shown on home page
