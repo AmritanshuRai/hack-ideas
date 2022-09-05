@@ -11,6 +11,7 @@ Follow the below instructions to run this application.
 - run `npm start` to run the code
 - To add challenge, login with existing username(_Amritanshu_, _Ami_ or _Anupam_) or register a new user.
 - Some initial data is added to storage(_src/sample.js_)
+- [netlify](https://hack-ideas-challenge.netlify.app/)
 
 ## Wireframes
 
