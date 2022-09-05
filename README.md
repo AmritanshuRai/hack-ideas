@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Hack Ideas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application lets users to create challenge ideas for hackathon.
 
-## Available Scripts
+## Getting started
 
-In the project directory, you can run:
+Follow the below instructions to run this application.
 
-### `npm start`
+- unzip the folder
+- run `npm install` to install dependencies
+- run `npm start` to run the code
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Wireframes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+These are the wireframes
 
-### `npm test`
+- [Homepage](https://wireframe.cc/0xyhd4)
+- [Create challenge](https://wireframe.cc/neR6wA)
+- [Register/login](https://wireframe.cc/bHOOoQ)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Key highlights
 
-### `npm run build`
+These are some of the things I liked working on this project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Used **useReducer** to create logic for sort functionality.
+- Style is all written in CSS without using any external CSS library
+- Created custom hook(**useLocalStorage**) to work like a single source of application state
+- Used **react portals** to create modal and toast notification
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Working of this application
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- User need to login/register for adding challenges or to give votes. Username must be unique.
+- Use the sort functionality to sort by oldest, latest, most upvotes most downvotes.
+- Allow users to enter into application with 'employee id'(password is not necessary).
+- Allow users to add a new challenges/ideas.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* A challenge will have a title, description and tags
+* You can maintain fixed pre-defined tags (like 'feature', 'tech' etc.)
+* Users can upvote a challenge
+* Show the list of all challenges on home page
+* Allow users to sort challenges with votes count, creation date
