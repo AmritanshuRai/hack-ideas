@@ -51,7 +51,7 @@ const Challenge = ({ challenge, challenges, setChallenges, currentUser }) => {
     <PrettyBorder className="challenge-wrapper">
       <Toast setToastConfig={setToastConfig} toastConfig={toastConfig} />
       <h4>{title}</h4>
-      <p>{description}</p>
+      <p className="challenge-description">{description}</p>
       <p>
         <span className="byline">By:</span>
         {author}

@@ -4,6 +4,13 @@ import useLocalStorage from './hooks/useLocalStorage';
 
 import './App.css';
 
+function sortByVotes(state, type) {
+  return [...state].sort((a, b) => {
+    const aValue = Object.values(a.votes).filter(x => x === type).length;
+    const bValue = Object.values(b.votes).filter(x => x === type).length;
+    return bValue - aValue;
+  });
+}
 function reducer(state, action) {
 
   switch (action.type) {
@@ -12,17 +19,9 @@ function reducer(state, action) {
         return new Date(a.createdAt) - new Date(b.createdAt);
       });
     case "MOST_UPVOTES":
-      return [...state].sort((a, b) => {
-        const aValue = Object.values(a.votes).filter(x => x === 'up').length;
-        const bValue = Object.values(b.votes).filter(x => x === 'up').length;
-        return bValue - aValue;
-      });
+      return sortByVotes(state, "up")
     case "MOST_DOWNVOTES":
-      return [...state].sort((a, b) => {
-        const aValue = Object.values(a.votes).filter(x => x === 'down').length;
-        const bValue = Object.values(b.votes).filter(x => x === 'down').length;
-        return bValue - aValue;
-      });
+      return sortByVotes(state, "down")
     case "NEWEST":
       let values = action.payload ?? state;
       return [...values].sort((a, b) => {
