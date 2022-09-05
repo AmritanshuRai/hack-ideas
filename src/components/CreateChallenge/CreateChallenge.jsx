@@ -17,7 +17,8 @@ const CreateChallenge = ({ challengesApi, userApi }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { description, title, tag } = e.target;
-    if (!description.length || !title.length) {
+    if (!description.value || !title.value.length) {
+      debugger;
       setToastConfig({
         show: true,
         message: "Every field is required",
