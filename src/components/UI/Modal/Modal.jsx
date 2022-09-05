@@ -28,9 +28,9 @@ function Modal({ children, isOpen, handleClose, className }) {
   return (
     <ReactPortal wrapperId="react-portal-modal-container">
       <PrettyBorder className="modal">
-        {/* <button onClick={handleClose} className="close-btn">
+        <button onClick={handleClose} className="close-btn">
           Close
-        </button> */}
+        </button>
         <div className={`modal-content ${className}`}>{children}</div>
       </PrettyBorder>
     </ReactPortal>

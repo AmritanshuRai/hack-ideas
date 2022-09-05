@@ -23,3 +23,16 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.close-btn {
+  position: absolute;
+  top: 0;
+  background: #00000012;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  color: var(--color-primary);
+  border: none;
+}
